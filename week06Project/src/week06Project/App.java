@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class App {
-
-	//ISSUES: the draw method of the deck only assigns the first card 
+ 
 	public static void main(String[] args) {
 
 		//a.      Instantiate a Deck and two Players, call the shuffle method on the deck.
@@ -41,23 +40,17 @@ public class App {
 			System.out.print("Player 2 card: ");
 			Card player2FlippedCard = player2.flip();
 			player2FlippedCard.describe();
-			if (player1.getHand().size() > 1 && player2.getHand().size() > 1) {
+			if (player1.getHand().size() > 1 && player2.getHand().size() > 1) { //this if statement removes the flipped card from each player's hand so it is not used again 
 			player1.getHand().remove(0);
 			player2.getHand().remove(0);
 			}
 			if(player1FlippedCard.getValue() > player2FlippedCard.getValue()) {
-//				System.out.println("Player 1 card value = " + player1FlippedCard.getValue());
-//				System.out.println("Player 2 card value = " + player2FlippedCard.getValue());
 				player1.incrementScore();
 				System.out.println("Player 1 wins this round!");
 			} else if (player2FlippedCard.getValue() > player1FlippedCard.getValue()){
-//				System.out.println("Player 1 card value = " + player1FlippedCard.getValue());
-//				System.out.println("Player 2 card value = " + player2FlippedCard.getValue());
 				player2.incrementScore();
 				System.out.println("Player 2 wins this round!");
 			} else {
-//				System.out.println("Player 1 card value = " + player1FlippedCard.getValue());
-//				System.out.println("Player 2 card value = " + player2FlippedCard.getValue());
 				System.out.println("This round is a draw!");
 			}
 			System.out.println("Player 1 score: " + player1.getScore());
