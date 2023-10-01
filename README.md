@@ -9,4 +9,19 @@ public void draw(Deck deck) {
 		deck.getCards().remove(0); //removes the drawn card from the deck so that the next car drawn in that deck is not the same as the previous one 
 	}
 
- //The method 
+ //The constructor for the Deck class uses two different for loops to instantiate a deck of cards and assign values to the cards. The nested for loops were required to instantiate all four suits. 
+
+public Deck() {
+		String[] suits = {"Hearts", "Diamonds", "Spades", "Clubs"}; //array of suits for the cards 
+		String[] names = {"Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"}; //array of names of the cards 
+		for(String suit: suits) {
+			int count = 2;
+			for(String name : names) {
+				Card card = new Card(count, name + " of " + suit); //Instantiating a new card with the count as the value (type int) and the String name + " of " + suit as the name of the card (type String). 
+				cards.add(card); //adding the cards to the ArrayList<Card> called cards 
+				count++; //increments to give one higher value for the next card. Counter starts at 2 and the names array starts at Two, so these will coincide. 
+			}
+		}
+	}
+
+ //Please reach out with questions! I can be contacted at brianna.d.boehm@gmail.com 
